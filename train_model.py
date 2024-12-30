@@ -10,7 +10,7 @@ print("Veri setindeki ilk 10 satır:")
 print(df.head(10))
 
 # Sütun isimlerini görüntüleyelim
-print("\nSütunlar:")
+print("\nSütunlarr:")
 print(df.columns)
 
 # Veri setinin genel özet bilgisi
