@@ -1,9 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import joblib
 import pandas as pd
 from flask_cors import CORS
- # Tüm domainlere izin verir
-
 
 # Flask uygulamasını başlat
 app = Flask(__name__)
@@ -15,6 +13,12 @@ CORS(app)
 model = joblib.load('crop_recommendation_model.pkl')
 encoder = joblib.load('label_encoder.pkl')
 
+# Ana sayfayı göstermek için route
+@app.route('/')
+def index():
+    return render_template('index.html')  # templates/index.html dosyasını render eder
+
+# Tahmin API'si
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
